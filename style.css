@@ -355,7 +355,7 @@ header {
 .form-row textarea {
   flex: 1; padding: 12px 14px; border-radius: 6px;
   border: 1px solid rgba(0,0,0,0.08); font-size: 1rem; font-family: inherit;
-  background-color: #1c2633; color: #fff;
+  background-color: #1c2633; color: #ffffff;
 }
 
 .form-row textarea { min-height: 120px; resize: vertical; }
@@ -380,7 +380,7 @@ header {
 }
 
 .contact-form input::placeholder, .contact-form textarea::placeholder {
-  color: #a8bfe0; opacity: 1;
+  color: #ffffff; opacity: 1;
   font-family: "Avenir Next", sans-serif; font-weight: 400;
 }
 
@@ -913,7 +913,7 @@ header {
   .form-row input[type="email"],
   .form-row textarea {
     background-color: rgba(0, 0, 0, 0.2);
-    color: #fff;
+    color: #ffffff;
   }
   
   .btn {
