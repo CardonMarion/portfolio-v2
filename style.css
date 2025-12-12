@@ -624,7 +624,6 @@ header {
   /* SECTION ABOUT */
   .about {
     padding: 2rem 0 4rem 0;
-    padding-left: 3rem;
   }
 
   .about-content-grid {
@@ -632,6 +631,7 @@ header {
     flex-direction: column;
     padding: 0;
     width: 100%;
+    margin: 0 auto;
   }
 
   .about-title-top, .about-title-bottom {
@@ -640,6 +640,7 @@ header {
     grid-column: auto; grid-row: auto;
     margin: 0;
     padding-right: 3rem;
+    padding-left: 1rem;
   }
 
   .about-title-bottom {
@@ -648,7 +649,7 @@ header {
 
   .about-text-content {
     order: 3; 
-    margin: 0; padding: 0; 
+    margin: 0; padding: 0 0rem 0 4rem; 
     width: 100%;
     text-align: justify;
     grid-column: auto; grid-row: auto;
