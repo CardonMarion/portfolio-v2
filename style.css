@@ -1,11 +1,16 @@
-/* 1. BASE & RESET*/
+/* =========================================
+   1. BASE & RESET
+   ========================================= */
 
-* { box-sizing: border-box; }
+* { 
+  box-sizing: border-box; 
+}
 
 html { 
-    height: 100%; 
-    background-color: #a8bfe0;
+  height: 100%; 
+  background-color: #a8bfe0;
 }
+
 body { 
   height: 100%; 
   margin: 0;
@@ -16,13 +21,27 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1,h2,h3,h4 { font-family: "Playfair Display", serif; }
-a { color: inherit; text-decoration: none; }
+h1, h2, h3, h4 { 
+  font-family: "Playfair Display", serif; 
+}
 
+a { 
+  color: inherit; 
+  text-decoration: none; 
+}
+
+/* Sécurité pour les images responsives */
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* --- LOGIQUE DE GRILLE DESKTOP (Par défaut > 860px) --- */
 .container {
-  max-width: 960px;
+  width: 100%;           /* Assure la fluidité avant le blocage */
+  max-width: 960px;      /* Grille bloquée à 960px */
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 20px;       /* Marge de sécurité sur les bords */
 }
 
 .section {
@@ -33,11 +52,16 @@ a { color: inherit; text-decoration: none; }
 }
 
 .section::before {
-  content: ""; display: block; height: 100px; margin-top: -100px; visibility: hidden;
+  content: ""; 
+  display: block; 
+  height: 100px; 
+  margin-top: -100px; 
+  visibility: hidden;
 }
 
-
-/* 2. HEADER */
+/* =========================================
+   2. HEADER
+   ========================================= */
 
 header {
   background-color: #72701a;
@@ -49,23 +73,35 @@ header {
 }
 
 .header-wrapper {
-  display: flex; justify-content: space-between; align-items: center; width: 100%;
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  width: 100%;
 }
 
 .header-wrapper a {
   color: #1c2633;
-  font-weight: bold; font-size: 1rem; letter-spacing: 0.5px;
+  font-weight: bold; 
+  font-size: 1rem; 
+  letter-spacing: 0.5px;
   transition: color 0.3s;
 }
 
-.header-wrapper a:hover { color: #a8bfe0; }
+.header-wrapper a:hover { 
+  color: #a8bfe0; 
+}
 
-.logo { height: 80px; display: block; }
+.logo { 
+  height: 80px; 
+  display: block; 
+}
 
+/* =========================================
+   3. BANNIERE VIDEO
+   ========================================= */
 
-/* 3. BANNIERE VIDEO */
 .video-banner {
-  max-width: 1280px;
+  max-width: 1280px; /* Largeur max demandée pour le conteneur vidéo */
   width: 100%;
   margin: 100px auto 0 auto;
   line-height: 0;
@@ -73,13 +109,14 @@ header {
   position: relative;
   z-index: 0;
   border: 5px solid #a8bfe0;
-  box-sizing: border-box;
   background-color: #a8bfe0;
-  box-shadow: 0 0 0 100vw #a8bfe0;
+  /* Astuce pour simuler le background étendu */
+  box-shadow: 0 0 0 100vw #a8bfe0; 
 }
 
 .video-banner video {
-  width: 100%; height: auto;
+  width: 100%; 
+  height: auto;
   display: none; 
   transform: scale(1.01); 
 }
@@ -91,20 +128,18 @@ header {
   content: "";
   position: absolute; top: 0; left: 0; width: 100%; height: 100%;
   z-index: 2; pointer-events: none;
-  -webkit-box-shadow: inset 0px 0px 50px 100px #a8bfe0;
-  -moz-box-shadow: inset 0px 0px 50px 100px #a8bfe0;
   box-shadow: inset 0px 0px 50px 100px #a8bfe0;
 }
 
+/* =========================================
+   4. SECTION ABOUT
+   ========================================= */
 
-/* 4. SECTION ABOUT */
 .about {
   background-color: #a8bfe0;
   padding: 8rem 0 10rem 0;
   margin-top: 0;
 }
-
-.about .container { max-width: 960px; padding: 0 20px; margin: 0 auto; }
 
 .about-content-grid {
     display: grid;
@@ -148,25 +183,19 @@ header {
 }
 
 .sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
 }
 
-/* 5. SECTION SKILLS */
+/* =========================================
+   5. SECTION SKILLS
+   ========================================= */
+
 .skills {
   background-color: #a8bfe0;
   padding-bottom: 8rem;
   scroll-margin-top: 100px; 
 }
-
-.skills .container { max-width: 960px; padding: 0 20px; margin: 0 auto; }
 
 .skills-title {
   position:relative; z-index: 1;
@@ -195,6 +224,7 @@ header {
 
 .skill-item { display: flex; align-items: center; gap: 1.5rem; }
 
+/* Alignement desktop spécifique */
 .skill-item:nth-child(3n+1) { justify-content: flex-start; }
 .skill-item:nth-child(3n+2) { justify-content: center; margin-left: -1rem; }
 .skill-item:nth-child(3n+3) { justify-content: flex-end; text-align: left; }
@@ -221,8 +251,10 @@ header {
 .dot.empty  { background-color: transparent; }
 .dot.half   { background: linear-gradient(90deg, #72701a 50%, transparent 50%); }
 
+/* =========================================
+   6. SECTION WORK (PROJET)
+   ========================================= */
 
-/* 6. SECTION WORK */
 .projet { background-color: transparent; padding-bottom: 6rem; scroll-margin-top: 100px; }
 
 .projet-layout {
@@ -236,9 +268,7 @@ header {
 }
 
 .projet-title-col h2 {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
+  display: flex; flex-direction: column; margin: 0;
 }
 
 .projet-word-top {
@@ -267,30 +297,30 @@ header {
 
 .work-item img:hover { transform: scale(1.03); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
 
+/* Lightbox */
 .lightbox {
   position: fixed; inset: 0;
   display: none; align-items: center; justify-content: center;
   background: rgba(8,10,15,0.66); z-index: 2000;
 }
-
 .lightbox.open { display: flex; }
 .lightbox-content { max-width: 90%; max-height: 85%; text-align: center; }
 .lightbox img {
   max-width: 100%; max-height: 80vh; border-radius: 6px; display: block; margin: 0 auto;
 }
-
 .lightbox-close, .lightbox-prev, .lightbox-next {
   position: absolute; background: transparent; border: none;
   color: #fff; font-size: 2rem; cursor: pointer; padding: 8px 12px;
 }
-
 .lightbox-close { top: 24px; right: 28px; }
 .lightbox-prev { left: 18px; top: 50%; transform: translateY(-50%); }
 .lightbox-next { right: 18px; top: 50%; transform: translateY(-50%); }
 .lightbox-caption { display: none !important; }
 
+/* =========================================
+   7. SECTION CONTACT & FORMULAIRE
+   ========================================= */
 
-/* 7. SECTION CONTACT & FORMULAIRE */
 .contact-container { max-width: 960px; margin: 0 auto; }
 
 .contact-title {
@@ -318,22 +348,15 @@ header {
 .form-row input[type="text"],
 .form-row input[type="email"],
 .form-row textarea {
-  flex: 1;
-  padding: 12px 14px;
-  border-radius: 6px;
-  border: 1px solid rgba(0,0,0,0.08);
-  font-size: 1rem;
-  font-family: inherit;
-  background-color: #1c2633;
-  color: #fff;
+  flex: 1; padding: 12px 14px; border-radius: 6px;
+  border: 1px solid rgba(0,0,0,0.08); font-size: 1rem; font-family: inherit;
+  background-color: #1c2633; color: #fff;
 }
 
 .form-row textarea { min-height: 120px; resize: vertical; }
 
-.form-row input:focus,
-.form-row textarea:focus {
-  outline: none;
-  border: 2px solid #007AFF; 
+.form-row input:focus, .form-row textarea:focus {
+  outline: none; border: 2px solid #007AFF; 
   box-shadow: 0 0 8px rgba(0, 122, 255, 0.3);
 }
 
@@ -351,113 +374,81 @@ header {
   transform: scale(1.05);
 }
 
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
+.contact-form input::placeholder, .contact-form textarea::placeholder {
   color: #a8bfe0; opacity: 1;
   font-family: "Avenir Next", sans-serif; font-weight: 400;
 }
 
-.contact-form input::-webkit-input-placeholder,
-.contact-form textarea::-webkit-input-placeholder { color: #fff; opacity: 1; }
-.contact-form input::-moz-placeholder,
-.contact-form textarea::-moz-placeholder { color: #fff; opacity: 1; }
-
-
-/* 8. FOOTER */
+/* =========================================
+   8. FOOTER
+   ========================================= */
 
 .site-footer {
   background: #72701a; color: #1c2633;
   text-align: center; padding: 3px 0; margin-top: 2rem; font-weight: bold;
 }
 
+/* =========================================
+   9. RESPONSIVE TABLETTES
+   De 859px jusqu'à 601px -> Grille bloquée à 539px
+   ========================================= */
 
-/* 9. RESPONSIVE TABLETTES */
+@media (max-width: 859px) {
 
-@media (max-width: 845px) {
-
-
+  /* Redéfinition de la grille tablette */
   .container {
-    max-width: 539px; 
+    max-width: 539px; /* Grille demandée */
     padding: 0; 
     margin: 0 auto; 
     overflow: visible; 
   }
 
-  .section {
-    padding: 3rem 0; 
-  }
+  .contact-container { max-width: 539px; }
 
+  .section { padding: 3rem 0; }
 
-  /* HEADER & FOOTER (Ajustement hauteur) */
+  /* Ajustements généraux */
+  header { padding: 0.5rem 0; }
+  .logo { height: 50px; }
+  .section::before { height: 70px; margin-top: -70px; }
 
-  header {
-    padding: 0.5rem 0; 
-  }
-
-  .logo {
-    height: 50px; 
-  }
-  
-  .section::before {
-    height: 70px;      
-    margin-top: -70px; 
-  }
-
-  .site-footer {
-    padding: 8px 0;   
-    margin-top: 2rem;
-  }
-
-  .site-footer p {
-    margin: 0; 
-    font-size: 0.8rem; 
-    line-height: 1.2;
-  }
-
+  .site-footer { padding: 8px 0; margin-top: 2rem; }
+  .site-footer p { margin: 0; font-size: 0.8rem; line-height: 1.2; }
 
   /* BANNIERE VIDEO */
   .video-banner {
     max-width: 720px; 
     margin-top: 4rem; 
   }
-
   .video-banner::after {
-    -webkit-box-shadow: inset 0px 0px 50px 50px #a8bfe0;
-    -moz-box-shadow: inset 0px 0px 50px 50px #a8bfe0;
     box-shadow: inset 0px 0px 50px 50px #a8bfe0;
   }
 
-
-  /* 4. TITRES */
-  
+  /* TITRES */
   .about-title-top, .about-title-bottom,
   .projet-word-top, .projet-word-bottom {
-    font-size: clamp(5rem, 11vw, 7rem); 
+    font-size: clamp(4rem, 11vw, 6rem); 
     line-height: 0.85; 
   }
 
   .skills-title, .contact-title {
-    font-size: clamp(6rem, 12vw, 8rem); 
+    font-size: clamp(5rem, 12vw, 7rem); 
     line-height: 0.85; 
   }
 
-
   /* SECTION ABOUT */
-  
-  .about {
-    padding: 2rem 0 6rem 0; 
-  }
+  .about { padding: 2rem 0 6rem 0; }
   
   .about-content-grid {
     grid-template-columns: 1fr auto; 
     grid-template-rows: auto auto; 
     align-items: flex-start; 
-    padding-right: 100px; 
+    padding-right: 20px; /* Ajusté pour la grille plus étroite */
   }
   
   .about-title-top { 
     grid-column: 1 / -1; 
-    grid-row: 1;        
+    grid-row: 1; 
     text-align: right;  
     width: 100%;
     margin: 0;
@@ -467,7 +458,7 @@ header {
 
   .about-title-bottom { 
     grid-column: 2 / 3; 
-    grid-row: 2;        
+    grid-row: 2; 
     text-align: right;  
     margin: 0; padding: 0;
     line-height: 0.8;
@@ -479,21 +470,17 @@ header {
     grid-row: 2;         
     text-align: justify;
     margin-top: 15px; 
-    padding-left: 100px; 
-    padding-right: 0;
-    margin-right: -30px;
+    padding-left: 0; 
+    padding-right: 15px;
+    margin-right: 0;
     position: relative;
     z-index: 1; 
   }
   
   .about-copy-text { font-size: 0.95rem; }
 
-
-  /* SECTION SKILLS */
-
-  .skills {
-    padding-bottom: 8rem; 
-  }
+  /* SECTION SKILLS - Passage à 2 colonnes pour tenir dans 539px */
+  .skills { padding-bottom: 8rem; }
 
   .skills-title {
     width: 100%; 
@@ -503,7 +490,7 @@ header {
   }
   
   .skills-grid { 
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes mieux adaptées à 539px */
     row-gap: 4rem; 
     column-gap: 1rem; 
     padding: 0; 
@@ -514,7 +501,7 @@ header {
   .skill-item:nth-child(n) { 
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; /* Centrage général pour tablette */
     margin: 0; 
     padding: 0;
     width: 100%;
@@ -528,13 +515,12 @@ header {
   }
   
   .skill-icon-box {
-    width: 85px; height: 85px; font-size: 2.3rem;
+    width: 80px; height: 80px; font-size: 2rem;
     border-radius: 18px; flex-shrink: 0; 
   }
   
-  .skill-name { font-size: 1.7rem; white-space: nowrap; }
+  .skill-name { font-size: 1.4rem; white-space: nowrap; }
   .dot { width: 22px; height: 22px; border-width: 2px; }
-
 
   /* SECTION WORK */
   .projet-layout { 
@@ -554,11 +540,11 @@ header {
     margin-left: 0; 
   }
 
+  /* 2 Colonnes pour Work sur tablette */
   .work-grid { 
     grid-template-columns: repeat(2, 1fr); 
     gap: 15px; 
   }
-
 
   /* SECTION CONTACT */
   .contact-title { 
@@ -567,38 +553,32 @@ header {
   }
 }
 
-
-/* 10. RESPONSIVE MOBILE */
+/* =========================================
+   10. RESPONSIVE MOBILE
+   De 600px et moins -> Grille bloquée à 336px
+   ========================================= */
 
 @media (max-width: 600px) {
   
-  .section {
-    padding: 1rem 0; 
-  }
+  .section { padding: 1rem 0; }
   
+  /* Redéfinition de la grille mobile */
   .container {
-    max-width: 336px;
+    max-width: 336px; /* Grille demandée */
     width: 100%; 
     padding: 0; 
     margin: 0 auto; 
     overflow: visible;
   }
+
+  .contact-container { max-width: 336px; }
   
   /* HEADER */
-  header {
-    padding: 1px 0;
-  }
-  
+  header { padding: 1px 0; }
   .header-wrapper { justify-content: center; }
   .header-wrapper a { display: none; }
-  
-  .logo {
-    height: 40px;
-    display: block; margin: 0 auto;
-  }
-  
+  .logo { height: 40px; display: block; margin: 0 auto; }
   .section::before { display: none; } 
-
 
   /* BANNIERE */
   .video-banner {
@@ -607,70 +587,86 @@ header {
   }
 
   .video-banner::after {
-    -webkit-box-shadow: inset 0px 0px 30px 30px #a8bfe0;
-    -moz-box-shadow: inset 0px 0px 30px 30px #a8bfe0;
     box-shadow: inset 0px 0px 30px 30px #a8bfe0;
   }
 
+  /* TITRES UNIFORMISÉS */
   .about-title-top, .about-title-bottom,
   .projet-word-top, .projet-word-bottom,
   .skills-title, .contact-title {
-    font-size: clamp(4.5rem, 14vw, 6rem);
+    font-size: clamp(3.5rem, 14vw, 5rem);
     width: 100%; 
-    line-height: 0.7;
+    line-height: 0.75;
   }
-
 
   /* SECTION ABOUT */
   .about {
     padding: 2rem 0 4rem 0;
+    margin: 0;
   }
 
   .about-content-grid {
     display: flex;
     flex-direction: column;
-    padding: 0;
     width: 100%;
     margin: 0 auto;
+    padding: 0;
   }
 
   .about-title-top, .about-title-bottom {
     text-align: right;
     width: 100%;
-    grid-column: auto; grid-row: auto;
     margin: 0;
-    padding-right: 3rem;
-    padding-left: 1rem;
+    padding: 0;
   }
 
-  .about-title-bottom {
-    margin-bottom: 1rem; 
-  }
+  .about-title-bottom { margin-bottom: 1rem; }
 
-  .about-text-content {
-    order: 3; 
-    margin: 0; padding: 0 0rem 0 4rem; 
-    width: 100%;
-    text-align: justify;
-    grid-column: auto; grid-row: auto;
-  }
-
-
-/* SECTION SKILLS */
-  .skills { 
-    padding-bottom: 4rem; 
-  }
-  
-  .skills-title {
-    display: block !important;
+.about-text-content {
     width: 100% !important;
-    text-align: center !important;
-    margin: 0 auto 4rem auto !important;
-    position: relative !important; 
-    z-index: 2;
-    overflow: visible !important;
+    margin: 0 !important;
     padding: 0 !important;
-    font-size: clamp(4rem, 11vw, 5rem) !important; 
+    display: block !important;
+  }
+
+  .about-copy-text {
+    /* On enlève le padding de 3rem du desktop qui écrasait le texte */
+    padding-right: 0 !important; 
+    
+    /* On force la largeur totale */
+    width: 100% !important;
+    
+    /* Optionnel : 'justify' rend le texte carré et propre sur les bords */
+    text-align: justify !important; 
+    
+    /* On ajuste un peu la taille pour la lisibilité mobile */
+    font-size: 1rem !important; 
+    line-height: 1.5 !important;
+  }
+
+  /* SECTION SKILLS - Passage à 1 colonne */
+  .skills { padding-bottom: 4rem; }
+  
+.skills-title {
+    display: block !important;
+    position: relative !important;
+    z-index: 2;
+    padding: 0 !important;
+    text-align: center !important;
+    overflow: visible !important;
+    
+    /* ASTUCE 1 : On élargit la zone de texte au-delà de la grille de 336px */
+    width: auto !important;
+    margin: 0 -20px 3rem -20px !important; 
+    
+    /* ASTUCE 2 : On remonte la taille (plus proche de celle de Contact) */
+    font-size: clamp(3.8rem, 13vw, 4.8rem) !important;
+    
+    /* ASTUCE 3 : On serre les lettres pour que ça rentre */
+    letter-spacing: -2px !important;
+    
+    line-height: 1 !important;
+    white-space: nowrap !important;
   }
 
   .skills-title::before {
@@ -680,57 +676,80 @@ header {
     top: 50% !important;
     left: 50% !important;
     transform: translate(-50%, -50%) !important;
-    white-space: nowrap !important; 
-    font-size: clamp(4rem, 11vw, 5rem) !important; 
-    letter-spacing: 3px;
+    
+    white-space: nowrap !important;
+    font-size: inherit !important;
+    letter-spacing: -2px !important; /* Même espacement serré */
     width: 100% !important;
     z-index: -1; 
   }
 
-  .skills-grid { 
-    grid-template-columns: 1fr; 
-    width: 100%;
+.skills-grid { 
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
     padding: 0; 
     margin: 0 auto;
-    row-gap: 3.5rem;
+    gap: 2.5rem;
   }
   
-.skill-item:nth-child(n) {
+  .skill-item:nth-child(n) {
     display: flex;
     flex-direction: row; 
-    align-items: center;
-    justify-content: center; 
+    align-items: center; /* Centre verticalement l'icône et le texte */
+    justify-content: flex-start !important; 
     text-align: left;
-    width: 100%;
-    padding: 0;
+    width: 100%; /* Prend toute la largeur de 336px */
     margin: 0; 
-    gap: 20px; 
+    padding: 0;
+    gap: 20px; /* Espace fixe entre le carré noir et le texte */
   }
   
   .skill-icon-box { 
-    width: 90px; 
-    height: 90px; 
-    font-size: 2.2rem; 
-    border-radius: 18px;
-    flex-shrink: 0; 
+    /* J'ai passé l'icône à 100px pour une assise solide */
+    width: 100px;       
+    height: 100px;     
+    font-size: 2.5rem; /* Icône plus grosse */
+    border-radius: 20px; /* Arrondi légèrement augmenté */
+    flex-shrink: 0;   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  }
+  
+  .skill-meta {
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* On espace un peu plus le Titre des points */
+    gap: 10px; 
   }
   
   .skill-name { 
-    font-size: 1.9rem; 
+    /* Augmenté à 2.1rem pour bien remplir l'espace horizontal */
+    font-size: 2.1rem; 
     white-space: nowrap; 
-    font-weight: 500;
-    
+    font-weight: 700; /* Plus gras pour plus de présence */
+    line-height: 1;
+    color: #72701a;
   }
   
+  .skill-dots {
+    display: flex;
+    /* J'ai augmenté l'écart entre les points pour étirer la ligne */
+    gap: 8px; 
+  }
+
   .dot { 
-    display: inline-block; 
-    width: 40px; height: 40px; border-width: 2.5px;
-    margin-left: 0px; 
+    /* Points beaucoup plus gros : 5 points x 34px + espaces = remplit la largeur */
+    width: 34px; 
+    height: 34px; 
+    border-width: 3px; /* Bordure plus épaisse */
   }
 
-
-/* SECTION WORK */
-  
+  /* SECTION WORK */
   .projet-layout { 
     display: block; 
     width: 100%;
@@ -747,7 +766,7 @@ header {
     display: block; 
     text-align: left;
     width: 100%;
-    margin-left: 10px;
+    margin-left: 0;
     padding: 0;
     line-height: 0.8; 
   }
@@ -755,27 +774,38 @@ header {
   .projet-word-bottom { 
     margin-top: 0.4rem; 
     margin-bottom: 2rem;
-    margin-left: 10px; 
+    margin-left: 0; 
     padding-top: 0; 
   }
   
   .work-grid { 
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr; /* 1 colonne */
     gap: 15px; 
   }
 
+  /* SECTION CONTACT */
+/* ... Dans @media (max-width: 600px) ... */
 
-/* SECTION CONTACT */
   .contact-title {
     display: block !important;
-    width: 100% !important;
-    text-align: center !important;
-    margin: 0 auto 4rem auto !important;
-    position: relative !important; 
+    position: relative !important;
     z-index: 2;
-    overflow: visible !important;
     padding: 0 !important;
-    font-size: clamp(4rem, 11vw, 5rem) !important; 
+    text-align: center !important;
+    overflow: visible !important;
+
+    /* MEME ASTUCE QUE POUR SKILLS : On élargit la zone */
+    width: auto !important;
+    margin: 0 -20px 4rem -20px !important; 
+    
+    /* MEME TAILLE DE POLICE QUE SKILLS pour l'harmonie */
+    font-size: clamp(3.8rem, 13vw, 4.8rem) !important;
+    
+    /* On serre un peu moins que skills car le mot est plus court */
+    letter-spacing: -1px !important;
+    
+    line-height: 1 !important;
+    white-space: nowrap !important;
   }
 
   .contact-title::before {
@@ -785,9 +815,10 @@ header {
     top: 50% !important;
     left: 50% !important;
     transform: translate(-50%, -50%) !important;
-    white-space: nowrap !important; 
-    font-size: clamp(4rem, 11vw, 5rem) !important; 
-    letter-spacing: 3px;
+    
+    white-space: nowrap !important;
+    font-size: inherit !important;
+    letter-spacing: -1px !important;
     width: 100% !important;
     z-index: -1; 
   }
@@ -798,12 +829,6 @@ header {
     width: 100%;
     margin: 0;
     gap: 20px; 
-  }
-
-  .form-group {
-    width: 100%;
-    margin: 0;
-    padding: 0;
   }
 
   .contact-form input,
@@ -828,14 +853,13 @@ header {
   .site-footer p { font-size: 0.7rem; margin: 0; }
 }
 
-
-/* 11. DARK MODE */
+/* =========================================
+   11. DARK MODE
+   ========================================= */
 
 @media (prefers-color-scheme: dark) {
 
-  html {
-    background-color: #72701a !important; 
-  }
+  html { background-color: #72701a !important; }
   
   body {
     background-color: #72701a !important; 
@@ -857,19 +881,9 @@ header {
   }
 
   .video-banner::after {
-    -webkit-box-shadow: inset 0px 0px 50px 50px #1c2633;
-    -moz-box-shadow: inset 0px 0px 50px 50px #1c2633;
     box-shadow: inset 0px 0px 50px 50px #1c2633;
   }
 
-@media only screen and (max-width: 560px) and (prefers-color-scheme: dark) {
-  .video-banner::after {
-    -webkit-box-shadow: inset 0px 0px 30px 30px #1c2633;
-    -moz-box-shadow: inset 0px 0px 30px 30px #1c2633;
-    box-shadow: inset 0px 0px 30px 30px #1c2633;
-  }
-}
-  
   .about-title-top, .about-title-bottom,
   .projet-word-top, .projet-word-bottom,
   .skills-title, .contact-title {
@@ -885,13 +899,10 @@ header {
       background-color: #050505; 
       color: #ffffff; 
   }
-  .skill-name {
-      color: #72701a;
-  }
+  .skill-name { color: #72701a; }
   .dot { border: 2px solid #72701a; } 
   .dot.filled { background-color: #72701a; }
   .dot.half   { background: linear-gradient(90deg, #72701a 50%, transparent 50%); }
-
 
   .form-row input[type="text"],
   .form-row input[type="email"],
@@ -903,7 +914,6 @@ header {
   .btn {
     background-color: rgba(0, 0, 0, 0.2);
     color: #ffffff;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
   }
   
   .btn:hover {
@@ -912,7 +922,7 @@ header {
     border-color: #007AFF;
   }
 
-.site-footer {
+  .site-footer {
     background: #72701a; 
     color: #1c2633;
     margin-top: 0; 
@@ -921,3 +931,9 @@ header {
   }  
 }
 
+/* Ajustement spécifique Dark Mode sur petit écran */
+@media only screen and (max-width: 560px) and (prefers-color-scheme: dark) {
+  .video-banner::after {
+    box-shadow: inset 0px 0px 30px 30px #1c2633;
+  }
+}
