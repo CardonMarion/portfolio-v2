@@ -148,12 +148,15 @@
       </div>
     </section>
 
-    <section id="contact" class="section contact">
+<section id="contact" class="section contact">
       <div class="container contact-container">
         
         <h2 class="contact-title" data-text="CONTACT">CONTACT</h2>
 
-        <form class="contact-form" action="#" method="post" novalidate>
+        <form class="contact-form" action="https://formspree.io/f/movgrlng" method="POST">
+          
+          <input type="hidden" name="_next" value="index.html">
+          
           <div class="form-row">
             <input type="text" name="name" placeholder="Prénom Nom" required>
             <input type="email" name="email" placeholder="Email" required>
@@ -169,7 +172,6 @@
         </form>
       </div>
     </section>
-  </main>
 
   <footer class="site-footer">
     <div class="container">
